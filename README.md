@@ -1,6 +1,6 @@
 # Panduan Belajar JavaScript
 
-![JavaScript Logo](https://www.freepnglogos.com/uploads/javascript/javascript-vector-logo-yellow-png-transparent-javascript-vector-12.png)
+![JavaScript Logo]([https://www.freepnglogos.com/uploads/javascript/javascript-vector-logo-yellow-png-transparent-javascript-vector-12.png](https://www.freepnglogos.com/images/javascript-39404.html))
 
 Selamat datang di panduan belajar JavaScript! Dokumen ini memberikan langkah-langkah dasar untuk memahami JavaScript.
 
