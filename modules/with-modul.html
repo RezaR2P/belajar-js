@@ -1,0 +1,25 @@
+<!-- Import -->
+<!-- Export digunakan untuk mengekspos kode di module, jika kita ingin menggunakan kode yang sudah di ekspos di module, kita bisa menggunakan kata kunci import
+Cara menggunakan kata kunci import adalah sebagai berikut :
+import {namaFunction, namaVariable, NamaClass} from “lokasi-module.js”
+Module hanya bisa digunakan di module lain, jadi pastikan ketika  membuat script, kita harus menggunakan type module
+Saat menggunakan import, kita tidak perlu lagi menambahkan script module src satu per satu, karena sudah di handle oleh Browser secara otomatis ketika menggunakan module -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="module" src="src/function.js"></script>
+  </head>
+  <body>
+    <!-- menambahkan type modul agar menjadi file js modul -->
+    <script type="module">
+      import { sayHello, sayBye, name } from "./src/function.js";
+      sayHello("Reza");
+      sayBye("Reza");
+      console.info(name);
+    </script>
+  </body>
+</html>

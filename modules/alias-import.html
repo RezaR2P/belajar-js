@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      // Atau rekomendasinya sebenarnya melakukan alias ketika melakukan import
+      // Sehingga ketika export, nama tidak perlu berubah
+      // Untuk melakukan alias ketika import, kita bisa gunakan kata kunci as, diikuti dengan nama alias :
+      // import { function as functionLain } from “./module.js”
+      import {
+        company as perusahaan,
+        sum as total,
+        Company as Perusahaan,
+      } from "./src/alias-import.js";
+      console.info(perusahaan);
+      console.info(total(10, 10));
+      const a = new Perusahaan();
+      console.info(a);
+    </script>
+  </body>
+</html>

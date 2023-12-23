@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="module">
+      import * as asu from "./src/object-modul.js";
+      console.info(asu.firstName);
+      console.info(asu.midleName);
+      console.info(asu.lastName);
+      asu.hello();
+      const person = new asu.Person("za");
+      console.info(person);
+    </script>
+  </body>
+</html>
