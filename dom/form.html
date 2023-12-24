@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">Form</h1>
+    <p id="description">Lorem ipsum dolor sit amet.</p>
+    <form action="" id="survey-form">
+      <label id="name-label" for="name">
+        <input type="text" id="name" required placeholder="Masukkan Nama" />
+        Name :
+      </label>
+      <label id="email-label" for="email">
+        <input type="email" id="email" required placeholder="Masukkan Email" />
+        Email :
+      </label>
+      <label id="number-label" for="number">
+        <input
+          type="number"
+          id="number"
+          required
+          min="8"
+          max="24"
+          placeholder="Masukkan No Handphone"
+        />
+        No HP :
+      </label>
+      <select id="dropdown">
+        <option value="">Pilih</option>
+        <option value="semangka">Semangka</option>
+        <option value="melon">Melon</option>
+      </select>
+      <label for="apel">
+        <input type="radio" name="iniradio" value="apel" /> Apel
+      </label>
+      <label for="mangga"
+        ><input type="radio" name="iniradio" value="mangga" /> Mangga</label
+      >
+      <label for="yes">
+        <input type="checkbox" name="yes" id="yes" value="yes" /> Yes
+      </label>
+      <label for="no">
+        <input type="checkbox" name="no" id="no" value="no" /> No
+      </label>
+      <label for="">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+      </label>
+      <button type="submit" id="submit">Submit</button>
+    </form>
+  </body>
+</html>
