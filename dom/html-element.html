@@ -1,0 +1,23 @@
+<!-- Element merupakan representasi dalam DOM
+Namun, saat menggunakan HTML, implementasi detail nya sebenarnya adalah HTML Element, yaitu turunan dari Element
+HTML Element memiliki banyak sekali property dan method tambahan selain dari Element DOM
+Kebanyakan HTML Element memiliki property yang sesuai dengan attribute yang ada pada tag html tersebut, oleh karena itu, kadang kita tidak butuh lagi menggunakan method setAttribute dan getAttribute
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a id="link"></a>
+    <script>
+      const link = document.getElementById("link");
+      link.href = "https://www.instagram.com/";
+      link.target = "_blank";
+      link.textContent = "Ini link instagram";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!-- DOM juga bisa digunakan untuk memanipulasi attribute style pada element dengan lebih mudah
+Kita tidak perlu menggunakan setAttribute(“style”, “value”) setiap ingin mengubah style sebuah element
+Kita bisa langsung gunakan element.style.name = value
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style 
+
+Nama style 
+Saat kita mengubah sebuah style, penamaan style menjadi berubah
+Pada style css, rata-rata menggunakan format lowercase dan -, misal background-color
+Sedangkan pada DOM Style, menggunakan format pascalCase, misal backgroundColor -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="button" value="red" />
+    <input type="button" value="green" />
+    <input type="button" value="blue" />
+    <div
+      id="canvas"
+      style="width: 500px; height: 500px; background-color: black"
+    ></div>
+    <script>
+      const canvas = document.getElementById("canvas");
+      const buttons = document.querySelectorAll("input");
+      for (const button of buttons) {
+        button.onclick = function () {
+          canvas.style.backgroundColor = button.getAttribute("value");
+        };
+      }
+    </script>
+  </body>
+</html>

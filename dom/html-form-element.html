@@ -1,0 +1,49 @@
+<!-- Form adalah salah satu element yang memiliki banyak sekali fitur diluar dari Element DOM
+Hal ini karena penggunaan Form memang lebih kompleks dibandingkan element HTML lainnya
+Ada banyak sekali property, method dan juga event yang terdapat pada HTML form element atau input element
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement 
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement  -->
+
+<!-- Salah satu kelebihan Form adalah, kita bisa mengakses form hanya dengan menggunakan form name
+Kita bisa gunakan document.forms[name]
+Atau jika kita ingin mengakses input nya, kita juga bisa menggunakan name nya document.forms[name][inputName] -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" name="commentForm">
+      <label for="comment">
+        Comment :
+        <input type="text" name="comment" id="comment" />
+      </label>
+      <br />
+      <label for="from">
+        From :
+        <input type="text" name="from" id="from" />
+      </label>
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+    <div id="commentList"></div>
+    <script>
+      document.forms["commentForm"].onsubmit = function (event) {
+        const commentList = document.getElementById("commentList");
+        const comment = document.getElementById("comment").value;
+        const from = document.getElementById("from").value;
+
+        const commentItem = document.createElement("p");
+        commentItem.textContent = `${comment} - ${from}`;
+        commentList.appendChild(commentItem);
+
+        document.forms["commentForm"].reset();
+
+        event.preventDefault();
+      };
+    </script>
+  </body>
+</html>

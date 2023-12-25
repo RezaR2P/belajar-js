@@ -1,0 +1,25 @@
+<!-- ID Selector merupakan selector yang digunakan untuk menyeleksi id yang sesuai selector
+Untuk menggunakannya, kita bisa gunakan nama id diawali dengan karakter #
+https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="menu2">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+  </body>
+  <script>
+    const elements = document.querySelectorAll("#menu2");
+    console.info(elements);
+  </script>
+</html>

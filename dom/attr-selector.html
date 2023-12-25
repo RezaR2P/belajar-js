@@ -1,0 +1,23 @@
+<!-- Attribute Selector merupakan selector yang bisa digunakan untuk menyeleksi element berdasarkan attribute nya
+Kita bisa menggunakan selector [attribute]
+Atau bisa juga untuk tag tertentu, misal menggunakan selector div[attribute]
+https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="button" value="click Me" />
+    <label for="checkbox">
+      <input type="checkbox" name="checkbox" id="checkbox" /> checkbox</label
+    >
+    <script>
+      const attribute = document.querySelectorAll("[type]");
+      console.info(attribute);
+    </script>
+  </body>
+</html>

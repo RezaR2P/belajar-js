@@ -1,0 +1,32 @@
+<!-- Kita juga bisa menggunakan operator pada attribut selector
+Misal [attribute=value], [attribute^=value] dan lain-lain
+https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors#syntax  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="button" value="click Me" class="pler" />
+    <label for="checkbox">
+      <input type="checkbox" name="checkbox" id="checkbox" class="plergeming" />
+      checkbox</label
+    >
+    <label for="checkbox2">
+      <input
+        type="checkbox"
+        name="checkbox2"
+        id="checkbox2"
+        class="plergimang"
+      />
+      checkbox2</label
+    >
+    <script>
+      const attribute = document.querySelectorAll("input[class^='pler']"); // catatan untuk value harus pake kutip 1
+      console.info(attribute);
+    </script>
+  </body>
+</html>
