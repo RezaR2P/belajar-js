@@ -1,0 +1,27 @@
+<!-- NamedNodeMap merupakan kumpulan dari Attr
+Mirip seperti NodeList, namun isinya adalah Attr
+https://developer.mozilla.org/en-US/docs/Web/API/NamedNodeMap  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Named Node Map</title>
+  </head>
+  <body>
+    <img
+      id="logo"
+      src="https://www.programmerzamannow.com/img/pzn.png"
+      alt="instagram"
+    />
+    <script>
+      const id = document.getElementById("logo");
+      const attributes = id.attributes;
+
+      for (const attribute of attributes) {
+        console.info(`${attribute.name} : ${attribute.value}`);
+      }
+    </script>
+  </body>
+</html>

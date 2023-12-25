@@ -1,0 +1,21 @@
+<!-- Saat kita membuat HTML, kadang kita membuat teks tanpa tag
+Saat halaman web tersebut direpresentasikan dalam DOM, text tanpa tag bukanlah merupakan Element, melainkan Node
+Lebih tepatnya adalah Text Node
+ini sangat tidak di rekomendasi karena saat mau di ambil sangat susah karena tidak ada id dll
+https://developer.mozilla.org/en-US/docs/Web/API/Text  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Node</title>
+  </head>
+  <body>
+    Reza Ramdan Permana
+    <script>
+      const text = document.body.firstChild;
+      console.info(text.wholeText);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!-- Node memiliki kemampuan bereaksi terhadap suatu kejadian, misal kejadian di klik, mouse di atas node tersebut, dan lain-lain
+Ada banyak sekali jenis kejadian yang bisa kita buatkan aksinya ketika kejadian tersebut terjadi, atau dikenal dengan nama Event Handler
+Ada dua cara kita menambahkan Event Handler ke Node, menggunakan Event Target atau Global Event Handler
+https://developer.mozilla.org/en-US/docs/Web/API/EventTarget 
+https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Global</title>
+  </head>
+  <body>
+    <!-- Event Global
+Selain menggunakan Event Target, untuk menambahkan Event Handler, kita juga bisa menggunakan Global Event Handler
+Global Event Handler bukanlah sebuah super class, hanya kontrak yang bisa kita gunakan untuk menambah event handler sesuai dengan type event nya
+https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers   -->
+    <input id="clickMe" type="button" value="CLICK ME!" />
+    <script>
+      {
+        const button = document.getElementById("clickMe");
+        button.onclick = function () {
+          button.setAttribute("value", "You Already Click Me!");
+          console.info("Button di click");
+        };
+        // button.onclick = function () {
+        //   console.info("Button di click");
+        // }; // tidak bisa melakukan berulang hanya menimpa kode sebelumnya
+      }
+    </script>
+  </body>
+</html>

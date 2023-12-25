@@ -1,0 +1,30 @@
+<!-- Attr atau attribute merupakan representasi dari attribute sebuah element, atau singkatnya key-value, key nya adalah nama attribute, dan value nya adalah value attribute
+https://developer.mozilla.org/en-US/docs/Web/API/Attr  -->
+<!-- Kadang kebanyakan programmer ingin langsung mendapatkan value Attr 
+Jarang sekali menggunakan object Attr nya
+Untuk mendapatkan value secara langsung, kita bisa menggunakan method getAttribute(name) di Element -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribut</title>
+  </head>
+  <body>
+    <img
+      id="logo"
+      src="https://www.programmerzamannow.com/img/pzn.png"
+      alt="instagram"
+    />
+    <script>
+      const id = document.getElementById("logo");
+      //   const src = id.getAttributeNode("src");
+      const src = id.getAttribute("src");
+
+      console.info(src);
+      //   console.info(src.name);
+      //   console.info(src.value);
+    </script>
+  </body>
+</html>

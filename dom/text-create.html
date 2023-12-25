@@ -1,0 +1,18 @@
+<!-- Kita juga bisa membuat Text Node menggunakan method document.createTextNode(string)
+Hasilnya berupa Text yang bisa kita tambahkan ke Node lain
+ini tidak di rekomendasikan karena tidak di bungkus element lebih baik buat elment terlebih dahulu -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const text = document.createTextNode("Reza Ramdan Permana");
+      document.body.appendChild(text);
+    </script>
+  </body>
+</html>
