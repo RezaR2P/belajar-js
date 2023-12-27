@@ -1,0 +1,48 @@
+<!-- Apa itu synchronous?
+Program dalam JavaScript secara default akan dieksekusi baris per baris
+Secara default, proses di JavaScript akan dieksekusi secara Synchronous, artinya baris selanjutnya akan dieksekusi setelah baris sebelumnya selesai dikerjakan
+Proses Synchronous juga biasa disebut Blocking, karena harus menunggu tiap proses selesai, baru proses selanjutnya bisa dilakukan
+
+Apa itu Asynchronous?
+Walaupun secara default proses di JavaScript dieksekusi secara Synchronous, namun kita bisa membuatnya menjadi Asynchronous.
+Berbeda dengan proses Synchronous, pada proses Asynchronous, JavaScript tidak akan menunggu proses tersebut selesai, melainkan JavaScript akan melanjutkan baris selanjutnya, tanpa harus menunggu proses Asynchronous selesai.
+Proses Asynchronous juga biasa disebut Non-Blocking. -->
+
+<!-- Callback, merupakan mekanisme untuk memanggil kembali kode yang ada di program dari proses Async
+Callback biasanya dibuat dalam bentuk function as parameter, dan parameter function tersebut akan dieksekusi saat proses Async selesai
+Dengan menggunakan Callback, program bisa menerima informasi yang dibutuhkan dari proses yang berjalan secara Async
+
+Ada banyak method Async yang terdapat di JavaScript, yang akan kita bahas kali ini adalah :
+setTimeout(callback, timeInMilis), digunakan untuk menjalankan proses Async sekali dalam waktu tertentu.
+setInterval(callback, timeInMilis), digunakan untuk menjalankan proses Async secara periodik dalam waktu tertentu. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- SetTimeOut -->
+    <!-- <script>
+      const addHeader = () => {
+        const header = document.createElement("h1");
+        header.textContent = "Reza R2P";
+        document.body.appendChild(header);
+      };
+      setTimeout(addHeader, 5000);
+      console.info("Program Selesai");
+    </script> -->
+    <!-- setInterval -->
+    <h1 id="header"></h1>
+    <script>
+      const setTime = () => {
+        const header = document.getElementById("header");
+        header.textContent = new Date().toString();
+      };
+      setInterval(setTime, 1000);
+      console.info("Program Selesai");
+    </script>
+  </body>
+</html>
