@@ -1,0 +1,59 @@
+<!-- Selain menggunakan JSON, Query Param, Form, kadang kita butuh mengirim file ke Server
+Untuk mengirim file ke Server, kita perlu menggunakan object Form Data, lalu kita perlu menambahkan object File ke dalam FormData tersebut
+https://developer.mozilla.org/en-US/docs/Web/API/FormData 
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file 
+https://developer.mozilla.org/en-US/docs/Web/API/File 
+https://developer.mozilla.org/en-US/docs/Web/API/FileList  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax Send File</title>
+  </head>
+  <body>
+    <h1>Register</h1>
+    <form>
+      <label for="username">
+        Username : <input type="text" id="username" name="username" />
+      </label>
+      <br />
+      <label for="name">
+        Name : <input type="text" id="name" name="name" />
+      </label>
+      <br />
+      <label for="profile">
+        Profile : <input type="file" id="profile" profile="profile" />
+      </label>
+      <br />
+      <input type="button" value="Register" id="register" />
+    </form>
+    <h1 id="response"></h1>
+
+    <script>
+      const doRegister = () => {
+        const ajax = new XMLHttpRequest();
+        ajax.open("POST", "https://belajar.free.beeceptor.com/");
+        ajax.onload = () => {
+          console.info(ajax.responseText);
+        };
+
+        const form = new FormData();
+        form.append("username", document.getElementById("username").value);
+        form.append("name", document.getElementById("name").value);
+        // cara pertama
+        // const files = document.getElementById("profile").files;
+        // const firstFile = files.item(0);
+        // form.append("profile", firstFile);
+        // cara kedua
+        form.append(
+          "profile",
+          document.getElementById("profile").files.item(0)
+        );
+        ajax.send(form);
+      };
+      document.getElementById("register").onclick = doRegister;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!-- JavaScript adalah Single Thread (Single Proses), artinya walaupun proses yang kita buat adalah Async, tapi tetap akan dijalankan dalam Thread (Proses) yang sama.
+Kemampuan satu Thread dalam mengelola beberapa pekerjaan, dinamakan Concurrent.
+Kemampuan menjalankan beberapa Thread untuk mengelola satu atau lebih pekerjaan, dinamakan Paralel. 
+Dan untuk membuat proses secara Paralel, kita bisa menggunakan Web Worker
+
+Web Worker adalah kemampuan yang untuk menjalankan proses di Thread yang berbeda dibanding Main Thread. 
+Keuntungan menggunakan Web Worker adalah, jika terdapat proses yang membutuhkan waktu lama, Web kita tidak akan Freeze, karena proses tersebut bisa kita jalankan di Thread yang berbeda dari Main Thread (yang biasa digunakan oleh UI)
+https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API 
+
+Untuk menggunakan Web Worker API, kita bisa membuat object Worker
+https://developer.mozilla.org/en-US/docs/Web/API/Worker 
+Saat kita membuat object Worker, Worker tidak akan secara otomatis berjalan, melainkan kita perlu memberi perintah dengan cara mengirim pesan
+Untuk mengirim pesan, kita bisa gunakan method postMessage()
+Sedangkan untuk menerima balasan dari worker, kita bisa menggunakan event listener onmessage
+Data yang diterima adalah object MessageEvent
+https://developer.mozilla.org/en-US/docs/Web/API/MessageEvent  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Worker</title>
+  </head>
+  <body>
+    <button id="buttonTask">Click Me!</button>
+    <script>
+      const worker = new Worker("worker.js");
+      // worker.onemessager = callback
+      worker.addEventListener("message", function (message) {
+        console.info(message.data);
+      });
+
+      document.getElementById("buttonTask").onclick = function () {
+        worker.postMessage(1000000);
+      };
+    </script>
+  </body>
+</html>

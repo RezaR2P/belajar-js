@@ -1,0 +1,51 @@
+<!-- Async Await adalah fitur di JavaScript yang digunakan untuk mempermudah proses
+pembuatan kode Promise. Dengan menggunakan Async Await, kita bisa membuat kode
+Asynchronous dengan gaya Synchronous -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Promise<JSON Product>
+      function getProduct() {
+        const request = new Request("api/product.json", {
+          method: "GET",
+        });
+
+        const response = fetch(request);
+        return response.then((response) => response.json());
+      }
+
+      //   Promise<String ProductName>
+      function getProductNamePromise() {
+        return new Promise(function (resolve, reject) {
+          getProduct()
+            .then((product) => resolve(product.name))
+            .catch((error) => reject("Product Not Found"));
+        });
+      }
+
+      // sangat op tidak pusing sama sekali
+      //       Saat kita menggunakan Promise, kita bisa menggunakan catch() ketika terjadi error
+      // Bagaimana pada kasus Async Await?
+      // Pada Async Await, kita bisa menggunakan try catch untuk melakukan penanganan error
+
+      async function getProductNameAsync() {
+        try {
+          const product = await getProduct();
+          return product.name;
+        } catch (e) {
+          return `Product Not Found`;
+        }
+      }
+
+      getProductNamePromise().then((productName) => console.info(productName));
+      getProductNameAsync().then((productName) => console.info(productName));
+    </script>
+  </body>
+</html>

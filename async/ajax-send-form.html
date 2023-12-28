@@ -1,0 +1,47 @@
+<!-- Selain JSON dan Query Param, kadang kita juga mengirim Form Data dari Client ke Server menggunakan AJAX
+Untuk kasus ini kita tetap bisa menggunakan URLSearchParam
+Namun object URLSearchParam nya kita kirim di method send() -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax Send Json</title>
+  </head>
+  <body>
+    <form>
+      <label for="username">
+        Username : <input type="text" id="username" name="username" />
+      </label>
+      <br />
+      <label for="password">
+        password : <input type="password" id="password" name="password" />
+      </label>
+      <br />
+      <input type="button" value="Login" id="login" />
+    </form>
+    <h1 id="response"></h1>
+
+    <script>
+      const doLogin = () => {
+        const ajax = new XMLHttpRequest();
+        ajax.open("POST", "https://belajar.free.beeceptor.com/");
+        ajax.onload = () => {
+          const response = document.getElementById("response");
+          response.innerText = ajax.responseText;
+        };
+        ajax.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+
+        const form = new URLSearchParams();
+        form.append("username", document.getElementById("username").value);
+        form.append("password", document.getElementById("password").value);
+        ajax.send(form);
+      };
+      document.getElementById("login").onclick = doLogin;
+    </script>
+  </body>
+</html>

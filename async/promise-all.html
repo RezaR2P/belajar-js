@@ -1,0 +1,56 @@
+<!-- Promise juga memiliki beberapa static method
+Promise.all() digunakan untuk mengeksekusi beberapa promise sekaligus dan menunggu semua hasil promise nya
+Promise.any() digunakan untuk mengeksekusi beberapa promise sekaligus dan mengambil hasil promise paling cepat
+Dan lain-lain
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#static_methods  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td>ID :</td>
+          <td id="id"></td>
+        </tr>
+        <tr>
+          <td>Name :</td>
+          <td id="name"></td>
+        </tr>
+        <tr>
+          <td>Price :</td>
+          <td id="price"></td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      function getProducts(products) {
+        return new Promise((resolve, reject) => {
+          const ajax = new XMLHttpRequest();
+          ajax.open("GET", `api/${products}.json`);
+          ajax.onload = () => {
+            if (ajax.status === 200) {
+              resolve(ajax.responseText);
+            } else {
+              reject(`Error Get Product with response : ${ajax.status}`);
+            }
+          };
+          ajax.send();
+        });
+      }
+      const promise = new Promise.all([
+        getProducts("products1"),
+        getProducts("products2"),
+        getProducts("products3"),
+      ]);
+      promise.then((products) => {
+        console.info(products);
+      });
+    </script>
+  </body>
+</html>

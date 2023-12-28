@@ -1,0 +1,49 @@
+<!-- Saat kita menggunakan AJAX, biasanya bukan hanya untuk mengambil data dari Server
+Kadang kita juga ingin mengirim data dari Client ke Server, misalnya kita membaca semua data di Web Form, lalu mengirimkan ke Server menggunakan AJAX
+Untuk melakukan ini, kita bisa menambahkan parameter data yang akan kita kirim pada method send() milik XMLHttpRequest
+https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/send 
+
+Jika teman-teman mendapat masalah ketika mengakses website Hookbin, ada banyak alternatif lain website seperti Hookbin, misalnya :
+https://beeceptor.com/  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax Send Json</title>
+  </head>
+  <body>
+    <form>
+      <label for="username">
+        Username : <input type="text" id="username" name="username" />
+      </label>
+      <br />
+      <label for="password">
+        password : <input type="password" id="password" name="password" />
+      </label>
+      <br />
+      <input type="button" value="Login" id="login" />
+    </form>
+    <h1 id="response"></h1>
+
+    <script>
+      const doLogin = () => {
+        const ajax = new XMLHttpRequest();
+        ajax.open("POST", "https://belajar.free.beeceptor.com/");
+        ajax.onload = () => {
+          const response = document.getElementById("response");
+          response.innerText = ajax.responseText;
+        };
+        ajax.setRequestHeader("Content-Type", "apllication/json");
+
+        const json = {
+          username: document.getElementById("username").value,
+          password: document.getElementById("password").value,
+        };
+        ajax.send(JSON.stringify(json));
+      };
+      document.getElementById("login").onclick = doLogin;
+    </script>
+  </body>
+</html>
